@@ -96,6 +96,8 @@ router.post(
           .json({ errors: [{ msg: "Invalid Credentials" }] });
       }
 
+      console.log("Login efetuado com sucesso!"); // Adicionando console.log()
+
       const payload = {
         user: {
           id: user.id,
@@ -115,7 +117,7 @@ router.post(
       console.error(err.message);
       res.status(500).send("Server error");
     }
-  }
+  },
 );
 
 module.exports = router;
