@@ -1,8 +1,12 @@
+// ROUTES FOR PAYPAL PAYMENTS API
+// These routes handle the creation and capture of PayPal payments
+
 const paypal = require('@paypal/checkout-server-sdk');
 const express = require('express');
 const router = express.Router();
 const paypalClient = require('../config/paypal'); 
 
+// Route for creating a PayPal payment
 // @route   POST api/payments/create
 // @desc    Create PayPal payment
 // @access  Public
@@ -46,6 +50,7 @@ router.post('/create', async (req, res) => {
   }
 });
 
+// Route for capturing a PayPal payment
 // @route   POST api/payments/capture
 // @desc    Capture PayPal payment
 // @access  Public
@@ -65,3 +70,4 @@ router.post('/capture/:orderID', async (req, res) => {
 });
 
 module.exports = router;
+
